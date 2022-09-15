@@ -36,7 +36,7 @@ app.use(express.static('public'))
 app.listen(port,() =>
     console.log("listen on port : ?",port)
 )
-app.get('/index',(req,res) => {
+app.get('/',(req,res) => {
     res.render('index')
 })
 
