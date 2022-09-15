@@ -1,0 +1,25 @@
+{
+  "name": "tokyostationhotel",
+  "version": "1.0.0",
+  "main": "nodeserver.js",
+  "scripts": {
+    "start": "nodemon nodeserver.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "bootstrap": "^5.2.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-validator": "^6.14.2",
+    "ipaddr.js": "^2.0.1",
+    "mysql": "^2.18.1"
+  },
+  "description": "",
+  "engines": {
+    "node": "v18.9.0",
+    "npm": "8.19.2"
+  }
+}

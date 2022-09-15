@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ทำการจองสำเร็จ</title>
+    <link rel="stylesheet" href="reserve_success.css">
+</head>
+<body>
+    <main> 
+        <!--NAV BAR-->
+        <header>
+            <nav>
+                <img class="logo" src="images/LOGO.png" alt="LOGO">
+                <div class="nev_links">
+                    <a href="/index">หน้าแรก</a>
+                    <a href="/gallery">คลังภาพ</a>
+                    <a href="/travel">สถานที่ท่องเที่ยวใกล้เคียง</a>
+                    <a href="/contact">ติดต่อเรา</a>
+                </div>
+                <div>
+                    <a class="check" href="/check_reserve">ตรวจสอบการจอง</a>
+                </div>
+            </nav>
+        </header>
+        <!--Content-->
+       <section class="success_reserve">
+                <img class="IMG" src="images/checked_suckcess.svg" alt="">
+                <div class="TEXT">
+                <p>ทำการจองสำเร็จ</p>
+                <% reserve_data.forEach(function(item) { %>
+                    <p>รหัสการจองของคุณคือ : <%= item.reserve_id  %></p>
+                    <p>หมายเลขห้องการจอง : <%= item.room_id  %></p>
+                    <div class="name1">
+                    <p>ชื่อ : <%= item.customer_name  %></p>
+                    <p>นามสกุล : <%= item.customer_lastmane %></p>
+                    </div>
+                <% }) %>
+                <div class="date1">
+                <% datein.forEach(function(item) { %>
+                    <p>วันที่เข้าพัก : <%= item.checkin  %></p>
+                <% }) %>
+                <% dateout.forEach(function(item) { %>
+                    <p>วันออกที่พัก : <%= item.checkout  %></p>
+                <% }) %>
+                </div>
+                <p>กรุณาชำระเงินในวันที่เข้าพัก - ขอขอบคุณ</p>
+                </div>
+       </section>
+    </main>
+</body>
+</html>

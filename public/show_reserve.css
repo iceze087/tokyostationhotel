@@ -1,0 +1,89 @@
+/* Add Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,500&display=swap');
+/* All Class Using Same Class */
+:root{
+    /* Define Variable */
+       --Accent : #0b3f7b; /* Button Color */
+       --maincolor : #1F74D8;
+       --AccentHover : #769FD0; /*Mouse Hover --> light */
+       --Dark60 : rgba(68, 90 ,139, 0.6); /* 0.6=60% */
+       --Light : #FFFFFF;
+       --Transition : all 0.3s ease 0s /* Define Delay Time */
+   }
+   /* All section */
+
+*{
+    /* Clear margin and padding */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%; /* Fixed Height Using Scroolbar*/
+    overflow: auto;
+}
+body{
+    background-image: url("/images/Background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+}
+a { 
+    text-decoration: none; 
+}
+nav{
+    display: flex;
+    align-items: center;
+    height: 100px;
+    background-image: url("images/Logo_BG.svg");
+    padding: auto;
+}
+.logo{
+    padding-top: 3%;
+    padding-left: 5%;
+}
+.nev_links{
+    margin-left: 28%;
+}
+.nev_links a{
+    color: #FFFFFF;
+    padding: 8px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    transition: var(--Transition);
+    font-family: "Kanit";
+}
+.check{
+    color: #000;
+    background-color: #FFE033;
+    padding: 8px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    transition: var(--Transition);
+    font-family: "Kanit";
+    margin-left: 10px;
+}
+.success_reserve{
+    background-image: url("images/background_success.svg");
+    font-size: 1.6rem;
+    font-weight: 400;
+    width: 700px;
+    height: 510px;
+    padding-top: 1.5%;
+    margin-top: 4.7%;
+    margin-left: 27.3%;
+    transition: var(--Transition);
+    font-family: "Kanit";
+}
+.IMG{
+    display: block;
+    width: 20%;
+    height: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+p {
+    text-align: center;
+    padding: 1%;
+}

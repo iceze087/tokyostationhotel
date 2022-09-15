@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กรอกข้อมูลในการจอง</title>
+    <link rel="stylesheet" href="Payment_Style.css">
+</head>
+<body>
+    <main> 
+        <!--NAV BAR-->
+        <header>
+            <nav>
+                <img class="logo" src="images/LOGO.png" alt="LOGO">
+                <div class="nev_links">
+                    <a href="/index">หน้าแรก</a>
+                    <a href="/gallery">คลังภาพ</a>
+                    <a href="/travel">สถานที่ท่องเที่ยวใกล้เคียง</a>
+                    <a href="/contact">ติดต่อเรา</a>
+                </div>
+                <div>
+                    <a class="check" href="/check_reserve">ตรวจสอบการจอง</a>
+                </div>
+            </nav>
+        </header>
+        <!--Content-->
+       <section class="sectionmain">
+
+        <p class="header">กรอกข้อมูลในการจอง</p>
+
+        <div class="Showreserve">
+            <p>การจองที่พักของท่าน</p>
+
+            <div class="room_id">
+                <p>หมายเลขห้อง</p>
+                <% showdata.forEach(function(item) { %>
+                        <p><%= item.room_number %></p>
+                        <% }) %>  
+                </div>
+
+
+            <div class="datereserve">
+                <div>
+                <p>วันที่เข้าพัก</p>
+                <% datein.forEach(function(item) { %>
+                        <p><%= item.checkin %></p>
+                        <% }) %>  
+                </div>
+                <div>
+                <p>วันออกที่พัก</p>
+                <% dateout.forEach(function(item) { %>
+                    <p><%= item.checkout %></p>
+                    <% }) %> 
+                </div>
+            </div>  
+        </div>
+        <div class="price">
+                <p>รวมราคา</p>
+                <% showdata.forEach(function(item) { %>
+                    <p><%= item.room_price %></p>
+                    <% }) %>
+            </div>
+<!-------------------------------------------------------------------------------->
+        <form action="reserveroom" class="DataForm" method="post">
+
+                <% datein.forEach(function(item) { %>
+                <input type="hidden" id="reserve_checkindate" name="reserve_checkindate" value="<%= item.checkin  %>">
+                <% }) %>
+                <% dateout.forEach(function(item) { %>
+                <input type="hidden" id="reserve_checkoutdate" name="reserve_checkoutdate" value="<%= item.checkout  %>">
+                <% }) %>
+                <input type="hidden" id="reserve_status" name="reserve_status" value="'1'">  
+                    <p class="p_info">ข้อมูลติดต่อ</p>
+                <div class="">
+                    <input type="text" id="customer_name" name="customer_name" placeholder="ชื่อ" required>
+                    <input type="text" id="customer_lastmane" name="customer_lastmane" placeholder="นามสกุล" required>
+                    <input type="text" id="customer_number" name="customer_number" placeholder="เบอร์โทรศัพท์" required>
+                    <input type="text" id="customer_email" name="customer_email" placeholder="อีเมล" required>
+                </div>
+            <p>ที่อยู่</p>
+                <div>
+                    <input type="text" id="resident" name="resident" placeholder="ที่อยู่" required>
+                    <input list="provinces" name="provinces" placeholder="จังหวัด" required>
+                        <datalist id="provinces">
+                            <% provinces.forEach(function(item) { %>
+                                <option value="<%= item.name_th %>"></option>
+                                <% }) %> 
+                        </datalist>
+                </div>
+                <div>
+                    <input list="amphures" name="amphures" placeholder="อำเภอ" required>
+                        <datalist id="amphures">
+                            <% amphures.forEach(function(item) { %>
+                                <option value="<%= item.name_th %>"></option>
+                                <% }) %> 
+                        </datalist>
+                    <input list="districts" name="districts" placeholder="ตำบล" required>
+                        <datalist id="districts">
+                            <% districts.forEach(function(item) { %>
+                                <option value="<%= item.name_th %>"></option>
+                                <% }) %> 
+                        </datalist>
+                </div>
+                <div>
+                    <input list="zip_code" name="zip_code" placeholder="รหัสไปรษณีย์" required>
+                        <datalist id="zip_code">
+                            <% districts.forEach(function(item) { %>
+                                <option value="<%= item.zip_code %>"></option>
+                                <% }) %> 
+                        </datalist>
+                </div>  
+                
+                <% showdata.forEach(function(item) { %>
+                    <input type="hidden" id="room_id" name="room_id" value="<%= item.room_number  %>">
+                    <% }) %>  
+                
+                <input type="submit" value="ทำการจอง">
+        </form>
+         
+       </section>
+    </main>
+</body>
+</html>

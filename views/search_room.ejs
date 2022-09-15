@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ค้นหาห้องพัก</title>
+    <link rel="stylesheet" href="Search_Style.css">
+</head>
+<body>
+    <main> 
+        <!--NAV BAR-->
+        <header>
+            <nav>
+                <img class="logo" src="images/LOGO.png" alt="LOGO">
+                <div class="nev_links">
+                    <a href="/index">หน้าแรก</a>
+                    <a href="/gallery">คลังภาพ</a>
+                    <a href="/travel">สถานที่ท่องเที่ยวใกล้เคียง</a>
+                    <a href="/contact">ติดต่อเรา</a>
+                </div>
+                <div>
+                    <a class="check" href="/check_reserve">ตรวจสอบการจอง</a>
+                </div>
+            </nav>
+        </header>
+        <!--Content-->
+        <section class="ShowDate">
+            <div >
+                <br>
+                <label for="" class="DateInOut">วันที่เข้าพัก - วันออกที่พัก</label> 
+            </div>
+            <div class = "dateData">
+            <% datein.forEach(function(item) { %>
+                    <p><%= item.checkin  %></p>
+                <% }) %>
+            <% dateout.forEach(function(item) { %>
+                    <p><%= item.checkout  %></p>
+                <% }) %>
+            </div>
+        </section>
+        <section>
+            <label for="" class="header">เลือกห้องที่ท่านต้องการ</label>
+  <!--------------------------------------------------------------------------->          
+        <form action="/inputinfo" method="post">
+            <% reserve.forEach(function(item) { %>
+           <div class="data">
+            <div class="roomdata">
+                <img class="img"  src="<%= item.room_image  %>" alt="">
+            </div>
+            <div class="text">
+                <p ><%= item.room_number  %></p>
+                <p ><%= item.room_detail  %></p>
+                <p ><%= item.room_price  %></p>
+                <input type="submit" id="room_number" name="room_number" value="<%= item.room_number %>">
+            </div>
+        </div>
+            <% }) %>  
+        
+         <!--------------------------------------------------------------------------->
+                <% datein.forEach(function(item) { %>
+                <input type="hidden" id="reserve_checkindate" name="reserve_checkindate" value="<%= item.checkin  %>">
+                <% }) %>
+                <% dateout.forEach(function(item) { %>
+                <input type="hidden" id="reserve_checkoutdate" name="reserve_checkoutdate" value="<%= item.checkout  %>">
+                <% }) %>
+        </form>
+    </section>
+    </main>
+</body>
+</html>
